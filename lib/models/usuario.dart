@@ -1,4 +1,6 @@
-class Usuario {
+import 'package:flutter/widgets.dart';
+
+class Usuario with ChangeNotifier{
   final String id;
   final String nome;
   final String email;
