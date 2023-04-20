@@ -20,10 +20,11 @@ final dummyUsuarios = [
     id: '3',
     nome: 'Marcos',
     email: 'marcos@gmail.com',
-    imageUrl: 'https://cdn.pixabay.com/photo/2016/09/01/08/25/smiley-1635464_960_720.png',
+    imageUrl:
+        'https://cdn.pixabay.com/photo/2016/09/01/08/25/smiley-1635464_960_720.png',
   ),
   Usuario(
-    id: '',
+    id: '4',
     nome: 'Marta',
     email: 'marta@gmail.com',
     imageUrl:

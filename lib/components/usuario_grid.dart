@@ -18,6 +18,7 @@ class UsuarioGrid extends StatelessWidget {
         child: UsuarioItem(),
       ),
       // definindo uma estrutura de grid view com 2 elementos em cada linha
+      // SliverGridDelegateWithFixedCrossAxisCount = Cria layouts de grade com um número fixo de blocos no eixo transversal.
       gridDelegate: (SliverGridDelegateWithFixedCrossAxisCount(
         //qtd de colunas
         crossAxisCount: 2,
