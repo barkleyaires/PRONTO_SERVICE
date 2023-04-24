@@ -10,7 +10,6 @@ class UsuarioItem extends StatelessWidget {
       context,
       listen: false,
     );
-
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(

@@ -17,7 +17,15 @@ class Usuarios extends StatelessWidget {
         title: Text('Cadastro de usuario'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              String nome = nomeController.text;
+              String email = emailController.text;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => resultPage(nome, email)),
+              );
+            },
             icon: Icon(Icons.save),
           ),
         ],

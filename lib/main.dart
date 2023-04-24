@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pronto_service/models/usuario_list.dart';
+import 'package:pronto_service/pages/login.dart';
 import 'package:pronto_service/pages/usuario_detail_page.dart';
 import 'package:pronto_service/pages/usuario_overview.dart';
 import 'package:pronto_service/pages/usuarios.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         // definindo a tela home
         routes: {
+          AppRoutes.LOGIN: (context) => LoginPage(),
           AppRoutes.HOME: (context) => UsuarioOverviewPage(),
           AppRoutes.USUARIO_DETAIL: (context) => UsuarioDetailPage(),
           AppRoutes.USUARIOS: (context) => Usuarios(),
