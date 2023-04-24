@@ -11,22 +11,21 @@ class resultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Resultado'),
+        title: Text('Teste'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Nome:${nome}',
-              style: TextStyle(fontSize: 24.0),
+              'Nome: ${nome}',
+              style: TextStyle(fontSize: 16.0),
             ),
             SizedBox(height: 16.0),
             Text(
-              'Email:${email}',
-              style: TextStyle(fontSize: 18.0),
-              textAlign: TextAlign.center,
+              'Email: ${email}',
+              style: TextStyle(fontSize: 16.0),
             ),
           ],
         ),

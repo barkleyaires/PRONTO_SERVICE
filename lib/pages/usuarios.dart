@@ -14,7 +14,6 @@ class Usuarios extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: Text('Cadastro de usuario'),
         actions: [
           IconButton(
