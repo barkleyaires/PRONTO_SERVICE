@@ -25,8 +25,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // definindo a tela home
+        initialRoute: '/login',
         routes: {
-          AppRoutes.LOGIN: (context) => LoginPage(),
+          '/login': (context) => LoginPage(),
           AppRoutes.HOME: (context) => UsuarioOverviewPage(),
           AppRoutes.USUARIO_DETAIL: (context) => UsuarioDetailPage(),
           AppRoutes.USUARIOS: (context) => Usuarios(),

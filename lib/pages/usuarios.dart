@@ -11,6 +11,7 @@ class Usuarios extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController nomeController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
+    bool validate = false;
 
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +44,7 @@ class Usuarios extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16.0),
-            TextField(
+            TextFormField(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(

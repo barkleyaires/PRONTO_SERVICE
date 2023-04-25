@@ -25,7 +25,7 @@ class UsuarioItem extends StatelessWidget {
           },
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
           // leading: IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
           title: Text(usuario.nome, textAlign: TextAlign.center),
           // trailing: IconButton(      onPressed: () {},             icon: Icon(Icons.shopping_cart),

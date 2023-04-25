@@ -27,7 +27,7 @@ class UsuarioOverviewPage extends StatelessWidget {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',tooltip: AppRoutes.HOME
+            label: 'Home',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Pesquisar'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
