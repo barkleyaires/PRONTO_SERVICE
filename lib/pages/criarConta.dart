@@ -5,26 +5,29 @@ import 'package:validatorless/validatorless.dart';
 
 import '../utils/app_routes.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  //usar global key para preservar o estado de uma arvore/grupo de widgets com o mesmo tipo,
-  //evitando que o estado esteja desatualizado ao adicionar, remover ou reordenar widgets deste mesmo grupo.
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _senhaController = TextEditingController();
+class CriarConta extends StatelessWidget {
+  const CriarConta({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+    final _nomeController = TextEditingController();
+    final _emailController = TextEditingController();
+    final _senhaController = TextEditingController();
+    final _confirmSenhaController = TextEditingController();
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Página de Login')),
+          title: Center(child: Text('CRIAR CONTA')),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.LOGIN);
+              },
+              icon: Icon(Icons.login),
+            ),
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -36,8 +39,19 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Insira seus dados para entrar',
+                  'Cadastre-se',
                   style: TextStyle(fontSize: 20),
+                ),
+                TextFormField(
+                  controller: _nomeController,
+                  decoration: InputDecoration(
+                    labelText: 'Nome: ',
+                  ),
+                  //quando qualquer coisa for alterado ou sofrer alteração
+                  validator: Validatorless.multiple([
+                    Validatorless.required('Insira seu nome'),
+                    Validatorless.min(2, 'Mínimo de 2 caracteres')
+                  ]),
                 ),
                 TextFormField(
                   controller: _emailController,
@@ -58,9 +72,24 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     labelText: 'Senha: ',
                   ),
-                  validator: Validatorless.required('Insira a senha'),
+                  validator: Validatorless.multiple([
+                    Validatorless.required('Insira a senha'),
+                    Validatorless.min(6, 'Mínimo 6 caracteres'),
+                  ]),
                 ),
-                Text('Esqueceu a senha?'),
+                TextFormField(
+                  controller: _confirmSenhaController,
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Confirmar Senha: ',
+                  ),
+                  validator: Validatorless.multiple([
+                    Validatorless.required('Confirme a senha'),
+                    Validatorless.compare(
+                        _senhaController, 'As senhas precisam ser iguais')
+                  ]),
+                ),
                 ElevatedButton(
                   onPressed: () {
                     var formValid = _formKey.currentState?.validate() ?? false;
@@ -68,13 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.of(context).pushNamed(AppRoutes.HOME);
                     }
                   },
-                  child: Text('Entrar'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(AppRoutes.CRIARCONTA);
-                  },
-                  child: Text('Criar Conta'),
+                  child: Text('Salvar'),
                 ),
               ],
             ),

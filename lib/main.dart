@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pronto_service/models/usuario_list.dart';
+import 'package:pronto_service/pages/criarConta.dart';
 import 'package:pronto_service/pages/login.dart';
 import 'package:pronto_service/pages/usuario_detail_page.dart';
 import 'package:pronto_service/pages/usuario_overview.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.HOME: (context) => UsuarioOverviewPage(),
           AppRoutes.USUARIO_DETAIL: (context) => UsuarioDetailPage(),
           AppRoutes.USUARIOS: (context) => Usuarios(),
+          AppRoutes.CRIARCONTA: (context) => CriarConta(),
         },
         //tirando o icone debug no canto superior
         debugShowCheckedModeBanner: false,

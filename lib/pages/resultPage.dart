@@ -3,9 +3,12 @@ import 'package:flutter/widgets.dart';
 
 class resultPage extends StatelessWidget {
   final String nome;
+  final String cpf;
   final String email;
+  final String senha;
+  final String telefone;
 
-  resultPage(this.nome, this.email);
+  resultPage(this.nome, this.cpf, this.email, this.senha, this.telefone);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,22 @@ class resultPage extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             Text(
+              'Cpf: ${cpf}',
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 16.0),
+            Text(
               'Email: ${email}',
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'Senha: ######',
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'telefone: ${telefone}',
               style: TextStyle(fontSize: 16.0),
             ),
           ],
