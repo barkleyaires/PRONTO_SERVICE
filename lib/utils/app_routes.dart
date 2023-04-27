@@ -5,4 +5,5 @@ class AppRoutes {
   static const USUARIOS = '/usuarios';
   static const CRIARCONTA = '/criarConta';
   static const LOGIN = '/login';
+  static const HOME_PAGE = '/home';
 }

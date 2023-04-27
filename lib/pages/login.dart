@@ -35,9 +35,17 @@ class _LoginPageState extends State<LoginPage> {
               // Serve para esticar e ocupar a tela inteira
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  'Insira seus dados para entrar',
-                  style: TextStyle(fontSize: 20),
+                Center(
+                  child: Text(
+                    'Bem vindo ao PRONTO SERVICE',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    'Faça login para entrar',
+                    style: TextStyle(fontSize: 12),
+                  ),
                 ),
                 TextFormField(
                   controller: _emailController,
@@ -65,12 +73,13 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     var formValid = _formKey.currentState?.validate() ?? false;
                     if (formValid) {
-                      Navigator.of(context).pushNamed(AppRoutes.HOME);
+                      Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
                     }
                   },
                   child: Text('Entrar'),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.greenAccent),
                   onPressed: () {
                     Navigator.of(context).pushNamed(AppRoutes.CRIARCONTA);
                   },

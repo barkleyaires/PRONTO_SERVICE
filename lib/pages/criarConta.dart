@@ -94,7 +94,7 @@ class CriarConta extends StatelessWidget {
                   onPressed: () {
                     var formValid = _formKey.currentState?.validate() ?? false;
                     if (formValid) {
-                      Navigator.of(context).pushNamed(AppRoutes.HOME);
+                      Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
                     }
                   },
                   child: Text('Salvar'),
