@@ -10,6 +10,46 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       title: 'Usuários',
       home: Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text(
+                  'PRONTO SERVICE',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+                
+              ),
+              ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text('Cadastro de usuários'),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.USUARIOS);
+                  }),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Perfil'),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Configurações'),
+              ),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text('Sair'),
+                onTap: () {
+                  Navigator.of(context).pushNamed(AppRoutes.LOGIN);
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           title: Text('Usuários'),
           actions: [
@@ -41,11 +81,6 @@ class HomePage extends StatelessWidget {
                 },
               ),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoutes.LOGIN);
-                },
-                child: Text('Voltar'))
           ],
         ),
       ),
