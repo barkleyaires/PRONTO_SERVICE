@@ -36,7 +36,15 @@ class Usuarios extends StatelessWidget {
                 controller: _nomeController,
                 //    keyboardType: TextInputType.name,
                 decoration: InputDecoration(
-                    labelText: 'Nome: ', prefixIcon: Icon(Icons.person)),
+                  labelText: 'Nome: ',
+                  prefixIcon: Icon(Icons.person),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+
                 validator: Validatorless.multiple([
                   Validatorless.required('Insira o nome'),
                 ]),
@@ -47,7 +55,13 @@ class Usuarios extends StatelessWidget {
                 maxLength: 11,
                 // keyboardType: TextInputType.name,
                 decoration: InputDecoration(
-                    labelText: 'Cpf: ', prefixIcon: Icon(Icons.abc)),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    labelText: 'Cpf: ',
+                    prefixIcon: Icon(Icons.abc)),
                 validator: Validatorless.multiple([
                   Validatorless.required('Insira o cpf'),
                   Validatorless.number('Insira somente números'),
@@ -59,17 +73,30 @@ class Usuarios extends StatelessWidget {
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
                   labelText: 'Email: ',
                   prefixIcon: Icon(Icons.email),
                 ),
-                validator: Validatorless.multiple(
-                    [Validatorless.email('Insira um email válido')]),
+                validator: Validatorless.multiple([
+                  Validatorless.email('Insira um email válido'),
+                  Validatorless.required('Informe o email')
+                ]),
               ),
               SizedBox(height: 8.0),
               TextFormField(
                 controller: _senhaController,
                 decoration: InputDecoration(
-                    labelText: 'Senha: ', prefixIcon: Icon(Icons.lock)),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    labelText: 'Senha: ',
+                    prefixIcon: Icon(Icons.lock)),
                 validator: Validatorless.multiple([
                   Validatorless.required('Insira a senha'),
                   Validatorless.min(
@@ -82,7 +109,13 @@ class Usuarios extends StatelessWidget {
                 controller: _telefoneController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                    labelText: 'Telefone: ', prefixIcon: Icon(Icons.phone)),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    labelText: 'Telefone: ',
+                    prefixIcon: Icon(Icons.phone)),
                 validator: Validatorless.multiple(
                     [Validatorless.number('Insira um telefone válido')]),
               ),

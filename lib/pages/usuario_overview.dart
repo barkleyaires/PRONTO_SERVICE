@@ -12,7 +12,7 @@ class UsuarioOverviewPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Tela de usuario'),
+        title: Text('PRONTO SERVICE'),
         actions: [
           IconButton(
             onPressed: () {

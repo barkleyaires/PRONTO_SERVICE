@@ -43,8 +43,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Center(
                   child: Text(
-                    'Faça login para entrar',
-                    style: TextStyle(fontSize: 12),
+                    'Insira seus dados para entrar',
+                    style: TextStyle(fontSize: 14),
                   ),
                 ),
                 TextFormField(
@@ -52,6 +52,11 @@ class _LoginPageState extends State<LoginPage> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: 'Email: ',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                   //quando qualquer coisa for alterado ou sofrer alteração
                   validator: Validatorless.multiple([
@@ -65,6 +70,11 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Senha: ',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                   validator: Validatorless.required('Insira a senha'),
                 ),
@@ -73,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     var formValid = _formKey.currentState?.validate() ?? false;
                     if (formValid) {
-                      Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
+                      Navigator.of(context).pushNamed(AppRoutes.HOME);
                     }
                   },
                   child: Text('Entrar'),
