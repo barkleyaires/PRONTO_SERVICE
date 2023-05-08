@@ -19,10 +19,7 @@ class UsuarioItem extends StatelessWidget {
             //caso queira colocar zoom no elemento fit: BoxFit.cover,
           ),
           //definindo a navegação de página
-          onTap: () {
-            Navigator.of(context)
-                .pushNamed(AppRoutes.USUARIO_DETAIL, arguments: usuario);
-          },
+          onTap: () {},
         ),
         footer: GridTileBar(
           backgroundColor: Colors.blue,

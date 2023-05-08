@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pronto_service/utils/app_routes.dart';
 
 import '../utils/app_routes.dart';
 
@@ -28,15 +29,17 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               ListTile(
+                  leading: Icon(Icons.build),
+                  title: Text('Serviços'),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.SERVICOS);
+                  }),
+              ListTile(
                   leading: Icon(Icons.add),
                   title: Text('Cadastro de usuários'),
                   onTap: () {
                     Navigator.of(context).pushNamed(AppRoutes.USUARIOS);
                   }),
-              ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Perfil'),
-              ),
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Configurações'),
@@ -55,10 +58,51 @@ class HomePage extends StatelessWidget {
           title: Center(child: Text('PRONTO SERVICE')),
           actions: [
             IconButton(
+              icon: Icon(Icons.search),
               onPressed: () {},
-              icon: Icon(Icons.person),
             ),
           ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          // para colocar mais de 3 itens
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Início',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.build),
+              label: 'Serviços',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt),
+              label: 'Minhas contratações',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Perfil',
+            ),
+          ],
+          selectedItemColor: Colors.blue,
+          onTap: (int index) {
+            switch (index) {
+              case 0:
+                Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
+                break;
+              case 1:
+                Navigator.of(context).pushNamed(AppRoutes.SERVICOS);
+                break;
+              case 2:
+                Navigator.of(context).pushNamed(AppRoutes.SERVICOS_USADOS);
+                break;
+              case 3:
+                Navigator.of(context).pushNamed(AppRoutes.USUARIOS);
+                break;
+              default:
+                break;
+            }
+          },
         ),
       ),
       debugShowCheckedModeBanner: false,
