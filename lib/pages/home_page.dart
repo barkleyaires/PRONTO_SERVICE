@@ -17,14 +17,15 @@ class HomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: Text(
-                  'PRONTO SERVICE',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
+                child: Center(
+                  child: Text(
+                    'PRONTO SERVICE',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
                   ),
                 ),
-                
               ),
               ListTile(
                   leading: Icon(Icons.add),
@@ -51,35 +52,11 @@ class HomePage extends StatelessWidget {
           ),
         ),
         appBar: AppBar(
-          title: Text('Usuários'),
+          title: Center(child: Text('PRONTO SERVICE')),
           actions: [
             IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.USUARIOS);
-              },
-              icon: Icon(Icons.add),
-            ),
-          ],
-        ),
-        body: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: 5, // Quantidade de cards que você deseja exibir
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text('Usuário'),
-                      subtitle: Text('teste@gmail.com'),
-                      leading: Icon(Icons.account_circle), // Ícone do card
-                      trailing: Icon(Icons.edit), // Ícone de navegação
-                      onTap: () {
-                        // Ação a ser executada quando o card for clicado
-                      },
-                    ),
-                  );
-                },
-              ),
+              onPressed: () {},
+              icon: Icon(Icons.person),
             ),
           ],
         ),
