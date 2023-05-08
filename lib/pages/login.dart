@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
 
   //método para esqueceu a senha
   void _mostrarPopupEsqueceuSenha(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
     TextEditingController _emailEsqueceuSenhaController =
         TextEditingController();
 
@@ -30,28 +31,34 @@ class _LoginPageState extends State<LoginPage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Esqueceu a senha?'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextFormField(
-                controller: _emailEsqueceuSenhaController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  hintText: 'exemplo@dominio.com',
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide.none,
+          content: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('Informe seu e-mail para recuperar a senha!'),
+                Padding(padding: EdgeInsets.all(10.0)),
+                TextFormField(
+                  controller: _emailEsqueceuSenhaController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email),
+                    labelText: 'Email',
+                    hintText: 'exemplo@dominio.com',
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide.none,
+                    ),
                   ),
+                  validator: Validatorless.multiple([
+                    Validatorless.required('Insira o e-mail'),
+                    Validatorless.email('Informe um e-mail válido')
+                  ]),
                 ),
-                validator: Validatorless.multiple([
-                  Validatorless.required('Insira o e-mail'),
-                  Validatorless.email('Informe um e-mail válido')
-                ]),
-              ),
-            ],
+              ],
+            ),
           ),
           actions: [
             TextButton(
@@ -62,10 +69,12 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                // Implemente aqui o código para enviar o link de redefinição de senha
-                Navigator.of(context).pop();
-                _showSnackbar(context,
-                    'Um código foi enviado para seu e-mail!');
+                var formValid = _formKey.currentState?.validate() ?? false;
+                if (formValid) {
+                  Navigator.of(context).pop();
+                  _showSnackbar(
+                      context, 'Um código foi enviado para seu e-mail!');
+                }
               },
               child: Text('Enviar'),
             ),
@@ -108,6 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email),
                     labelText: 'Email',
                     hintText: 'exemplo@dominio.com',
                     filled: true,
@@ -128,6 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: !_versenha,
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
                     labelText: 'Senha',
                     hintText: 'Digite sua senha',
                     filled: true,
