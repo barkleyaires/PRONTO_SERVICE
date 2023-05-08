@@ -17,7 +17,7 @@ class Usuarios extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro de usuario'),
+        title: Text('Cadastro de usuário'),
         actions: [
           IconButton(
             onPressed: () {},
@@ -25,101 +25,85 @@ class Usuarios extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
+      body: Container(
+        padding: EdgeInsets.all(16),
+        color: Colors.grey[100],
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              SizedBox(height: 16),
               TextFormField(
                 controller: _nomeController,
-                //    keyboardType: TextInputType.name,
                 decoration: InputDecoration(
-                  labelText: 'Nome: ',
+                  labelText: 'Nome completo',
+                  border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.person),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                    ),
-                  ),
                 ),
-
-                validator: Validatorless.multiple([
-                  Validatorless.required('Insira o nome'),
-                ]),
+                validator: Validatorless.required('Insira o nome'),
               ),
-              SizedBox(height: 8.0),
+              SizedBox(height: 16),
               TextFormField(
                 controller: _cpfController,
                 maxLength: 11,
-                // keyboardType: TextInputType.name,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ),
-                    ),
-                    labelText: 'Cpf: ',
-                    prefixIcon: Icon(Icons.abc)),
+                  labelText: 'CPF',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.credit_card),
+                ),
                 validator: Validatorless.multiple([
-                  Validatorless.required('Insira o cpf'),
+                  Validatorless.required('Insira o CPF'),
                   Validatorless.number('Insira somente números'),
-                  Validatorless.min(11, 'Cpf inválido')
+                  Validatorless.min(11, 'CPF inválido'),
                 ]),
               ),
-              SizedBox(height: 8.0),
+              SizedBox(height: 16),
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                    ),
-                  ),
-                  labelText: 'Email: ',
+                  labelText: 'Email',
+                  border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.email),
                 ),
                 validator: Validatorless.multiple([
+                  Validatorless.required('Insira o email'),
                   Validatorless.email('Insira um email válido'),
-                  Validatorless.required('Informe o email')
                 ]),
               ),
-              SizedBox(height: 8.0),
+              SizedBox(height: 16),
               TextFormField(
                 controller: _senhaController,
+                obscureText: true,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ),
-                    ),
-                    labelText: 'Senha: ',
-                    prefixIcon: Icon(Icons.lock)),
+                  labelText: 'Senha',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock),
+                ),
                 validator: Validatorless.multiple([
                   Validatorless.required('Insira a senha'),
                   Validatorless.min(
-                      6, 'A senha precisa ter no mínimo 6 caracteres')
+                      6, 'A senha precisa ter no mínimo 6 caracteres'),
                 ]),
               ),
-              SizedBox(height: 8.0),
+              SizedBox(height: 16),
               TextFormField(
                 maxLength: 11,
                 controller: _telefoneController,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ),
-                    ),
-                    labelText: 'Telefone: ',
-                    prefixIcon: Icon(Icons.phone)),
-                validator: Validatorless.multiple(
-                    [Validatorless.number('Insira um telefone válido')]),
+                  labelText: 'Telefone',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.phone),
+                ),
+                validator: Validatorless.multiple([
+                  Validatorless.required('Insira o telefone'),
+                  Validatorless.number('Insira somente números'),
+                  Validatorless.min(10, 'Telefone inválido'),
+                ]),
               ),
-              SizedBox(height: 8.0),
+              SizedBox(height: 32),
               ElevatedButton(
                 onPressed: () {
                   String nome = _nomeController.text;

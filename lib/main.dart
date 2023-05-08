@@ -3,8 +3,6 @@ import 'package:pronto_service/models/usuario_list.dart';
 import 'package:pronto_service/pages/criarConta.dart';
 import 'package:pronto_service/pages/home_page.dart';
 import 'package:pronto_service/pages/login.dart';
-import 'package:pronto_service/pages/usuario_detail_page.dart';
-import 'package:pronto_service/pages/usuario_overview.dart';
 import 'package:pronto_service/pages/usuarios.dart';
 import 'package:pronto_service/utils/app_routes.dart';
 import 'package:provider/provider.dart';
@@ -30,11 +28,9 @@ class MyApp extends StatelessWidget {
         initialRoute: '/login',
         routes: {
           '/login': (context) => LoginPage(),
-          AppRoutes.HOME: (context) => UsuarioOverviewPage(),
-          AppRoutes.USUARIO_DETAIL: (context) => UsuarioDetailPage(),
+          AppRoutes.HOME_PAGE: (context) => HomePage(),
           AppRoutes.USUARIOS: (context) => Usuarios(),
           AppRoutes.CRIARCONTA: (context) => CriarConta(),
-          AppRoutes.HOME_PAGE: (context) => HomePage(),
         },
         //tirando o icone debug no canto superior
         debugShowCheckedModeBanner: false,

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:pronto_service/data/dummy_data.dart';
+import 'package:pronto_service/data/carga_usuarios_data.dart';
 import 'package:pronto_service/models/usuario.dart';
 
 class UsuarioList with ChangeNotifier {

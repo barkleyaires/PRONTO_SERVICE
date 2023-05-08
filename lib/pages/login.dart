@@ -184,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 15.0),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.greenAccent),
+                  style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 37, 122, 40)),
                   onPressed: () {
                     Navigator.of(context).pushNamed(AppRoutes.CRIARCONTA);
                   },

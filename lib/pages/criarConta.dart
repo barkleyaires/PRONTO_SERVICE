@@ -8,6 +8,15 @@ import '../utils/app_routes.dart';
 class CriarConta extends StatelessWidget {
   const CriarConta({Key? key}) : super(key: key);
 
+  //método de mensagem de confirmação
+  void _showSnackbar(BuildContext context, String message) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      duration: Duration(seconds: 3),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -117,14 +126,17 @@ class CriarConta extends StatelessWidget {
                   onPressed: () {
                     var formValid = _formKey.currentState?.validate() ?? false;
                     if (formValid) {
-                      Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
+                      Navigator.of(context).pushNamed(AppRoutes.LOGIN);
+                        _showSnackbar(
+                      context, 'Cadastro realizado com sucesso!');
                     }
                   },
                   child: Text('Cadastrar'),
                 ),
                 const SizedBox(height: 15.0),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.greenAccent),
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 37, 122, 40)),
                   onPressed: () {
                     Navigator.of(context).pushNamed(AppRoutes.LOGIN);
                   },
