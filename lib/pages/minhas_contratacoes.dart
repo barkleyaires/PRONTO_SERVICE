@@ -1,9 +1,7 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 
-class ServicosUsados extends StatelessWidget {
-  const ServicosUsados({super.key});
+class MinhasContratacoes extends StatelessWidget {
+  const MinhasContratacoes({super.key});
 
   @override
   Widget build(BuildContext context) {

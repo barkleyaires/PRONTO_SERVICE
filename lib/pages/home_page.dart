@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pronto_service/utils/app_routes.dart';
 
 import '../utils/app_routes.dart';
+import 'menu_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -63,6 +64,26 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blue.shade600, Colors.blue.shade800],
+            ),
+          ),
+          child: GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            padding: EdgeInsets.all(16),
+            children: [
+              for (final menuItem in menuItems) ...[
+                menuItem,
+              ],
+            ],
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           // para colocar mais de 3 itens
           type: BottomNavigationBarType.fixed,
@@ -94,7 +115,7 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).pushNamed(AppRoutes.SERVICOS);
                 break;
               case 2:
-                Navigator.of(context).pushNamed(AppRoutes.SERVICOS_USADOS);
+                Navigator.of(context).pushNamed(AppRoutes.MINHAS_CONTRATACOES);
                 break;
               case 3:
                 Navigator.of(context).pushNamed(AppRoutes.USUARIOS);

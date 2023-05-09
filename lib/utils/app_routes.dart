@@ -5,5 +5,6 @@ class AppRoutes {
   static const CRIARCONTA = '/criarConta';
   static const LOGIN = '/login';
   static const SERVICOS = '/servicos';
-  static const SERVICOS_USADOS = '/servicos-usados';
+  static const MINHAS_CONTRATACOES = '/minhas_contratacoes';
+  static const AJUDA = '/ajuda';
 }

@@ -1,14 +1,15 @@
-import 'package:flutter/widgets.dart';
 import 'telefone.dart';
 
-class Usuario {
+class Prestadores {
   final String id;
   final String nome;
   final String email;
+  Telefone telefone;
   final String imageUrl;
 
   // Construtor
-  Usuario({
+  Prestadores(
+    this.telefone, {
     required this.id,
     required this.nome,
     required this.email,
