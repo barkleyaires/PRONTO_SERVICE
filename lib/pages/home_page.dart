@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.blue.shade600, Colors.blue.shade800],
+              colors: [Colors.white, Colors.white],
             ),
           ),
           child: GridView.count(

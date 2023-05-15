@@ -127,8 +127,7 @@ class CriarConta extends StatelessWidget {
                     var formValid = _formKey.currentState?.validate() ?? false;
                     if (formValid) {
                       Navigator.of(context).pushNamed(AppRoutes.LOGIN);
-                        _showSnackbar(
-                      context, 'Cadastro realizado com sucesso!');
+                      _showSnackbar(context, 'Cadastro realizado com sucesso!');
                     }
                   },
                   child: Text('Cadastrar'),

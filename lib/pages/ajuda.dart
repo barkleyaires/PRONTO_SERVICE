@@ -77,7 +77,7 @@ class Ajuda extends StatelessWidget {
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                   Navigator.of(context).pop();
+                  Navigator.of(context).pop();
                   _showSnackbar(
                       context, 'Sua mensagem foi enviada com sucesso!');
                 },
